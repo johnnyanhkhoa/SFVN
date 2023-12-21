@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from get_btc_price import get_btc_price
 
-TOKEN = '6534877719:AAEg5KFhKgxeqZO-yeyxJ5vhp-oFEDvjTLU'
+TOKEN = 'my_token'
 BOT_USERNAME: Final = '@congecko_coingecko_bot'
 
 # Commands
@@ -19,7 +19,7 @@ async def custom_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('This is a custom command!')
     
 async def get_price_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    btc_price = await get_btc_price()  # Use 'await' here
+    btc_price = await get_btc_price()
     if btc_price is not None:
         await update.message.reply_text(f"Current BTC/USD Price: {btc_price}")
     else:
